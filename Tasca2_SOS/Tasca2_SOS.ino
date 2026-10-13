@@ -1,4 +1,4 @@
-int pinLED=13;
+int pinLED=10;
 int boto=2;
 int punt=200;
 int ratlla=600;
