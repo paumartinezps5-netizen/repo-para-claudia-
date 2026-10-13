@@ -8,11 +8,11 @@ int n=0;
 
 void setup() {
   pinMode(pinLED, OUTPUT);
-  pinMode(boto, INPUT_PULLUP);
+  pinMode(boto, INPUT);
 }
 
 void loop() {
-  if (digitalRead(boto)==LOW) {
+  if (digitalRead(boto)==HIGH) {
     for (n=0; n<3; n++) {
       digitalWrite(pinLED, HIGH);
       delay(punt);
