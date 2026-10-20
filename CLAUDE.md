@@ -31,3 +31,8 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
   - `Tasca2_SOS_for/Tasca2_SOS_for.ino`: versió amb bucles `for`. Guarda com està el botó sense prémer (`repos`) i fa l'SOS quan la lectura canvia.
   - `Tasca2_SOS/Tasca2_SOS.ino`: versió sense `for`, amb `if (digitalRead(polsador)==HIGH)` i el botó amb resistència pull-down. És la que van triar perquè s'entén millor.
 - Es pot comentar que la versió sense `for` és més llarga però més fàcil de llegir, i que la del `for` és més curta.
+
+## Pendent per a la memòria de la Tasca 3 (polsador com a interruptor)
+
+- Color: taronja `#D9480F`.
+- Codi: `Tasca3_Interruptor/Tasca3_Interruptor.ino`. Mateix muntatge que la Tasca 2 (polsador al pin 2 amb pull-down, led al pin 10).
