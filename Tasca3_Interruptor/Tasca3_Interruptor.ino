@@ -1,6 +1,5 @@
 int pinLED=10;
 int polsador=2;
-int estat=LOW;
 
 void setup() {
   pinMode(pinLED, OUTPUT);
@@ -9,15 +8,11 @@ void setup() {
 
 void loop() {
   if (digitalRead(polsador)==HIGH) {
-    if (estat==LOW) {
-      estat=HIGH;
+    if (digitalRead(pinLED)==LOW) {
+      digitalWrite(pinLED, HIGH);
     } else {
-      estat=LOW;
+      digitalWrite(pinLED, LOW);
     }
-    digitalWrite(pinLED, estat);
-    delay(50);
-    while (digitalRead(polsador)==HIGH) {
-    }
-    delay(50);
+    delay(500);
   }
 }
