@@ -23,3 +23,11 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 ## Com es fa
 
 `memoria_tasca1_1/memoria.html` és la plantilla. Les imatges han de ser públiques perquè Google les pugui carregar, i per això es pugen a aquest repo i es fa servir l'enllaç `raw.githubusercontent.com`. L'HTML es puja al Drive (create_file amb `text/html`), es posa la mida A4 amb l'API de Docs, i s'exporta a PDF per comprovar que no hi ha res tallat entre pàgines.
+
+## Pendent per a la memòria de la Tasca 2 (SOS amb polsador)
+
+- Color: verd `#2E7D32`.
+- Van ensenyar dos codis al professor i a la memòria hi han de sortir els dos, cadascun amb la seva explicació:
+  - `Tasca2_SOS_for/Tasca2_SOS_for.ino`: versió amb bucles `for`. Guarda com està el botó sense prémer (`repos`) i fa l'SOS quan la lectura canvia.
+  - `Tasca2_SOS/Tasca2_SOS.ino`: versió sense `for`, amb `if (digitalRead(polsador)==HIGH)` i el botó amb resistència pull-down. És la que van triar perquè s'entén millor.
+- Es pot comentar que la versió sense `for` és més llarga però més fàcil de llegir, i que la del `for` és més curta.
