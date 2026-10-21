@@ -29,7 +29,8 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 
 - Google Doc "Memòria Polsador 2 i 3-Pau Martínez i Enric Vinyes" (id `1OSitvfxTBpIPHvLqVoSLO-YGThzo9jxR32x70aZDjCo`), fitxers a `memoria_tasca2_3/`.
 - Surten els dos codis de la Tasca 2 (`Tasca2_SOS_for` i `Tasca2_SOS`) i el de la Tasca 3 (`Tasca3_Interruptor`), cadascun amb la seva explicació.
-- Té salts de pàgina abans de "4.1" perquè el codi no quedi partit.
+- El títol "4.1" té "salt de pàgina abans" (pageBreakBefore) perquè el codi no quedi partit. Millor això que inserir un salt de pàgina, que deixa pàgines en blanc si el text de davant creix.
+- Captures dels vídeos (`cap_sos_*.jpg`, `cap_int_*.jpg`) retallades al voltant dels leds perquè es vegi si el led està encès o apagat.
 - Vídeos editats (cartell lila, rètols, música pròpia, soroll reduït) a `memoria_tasca2_3/tasca2_sos.mp4` i `tasca3_interruptor.mp4`. A la memòria s'enllacen amb jsDelivr (`https://cdn.jsdelivr.net/gh/paumartinezps5-netizen/repo-para-claudia-@<commit>/...`), que es reprodueix al navegador; raw.githubusercontent els descarrega.
 
 ## Vídeos
