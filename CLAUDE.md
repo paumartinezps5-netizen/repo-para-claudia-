@@ -31,8 +31,12 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 - Surten els dos codis de la Tasca 2 (`Tasca2_SOS_for` i `Tasca2_SOS`) i el de la Tasca 3 (`Tasca3_Interruptor`), cadascun amb la seva explicació.
 - El títol "4.1" té "salt de pàgina abans" (pageBreakBefore) perquè el codi no quedi partit. Millor això que inserir un salt de pàgina, que deixa pàgines en blanc si el text de davant creix.
 - Captures dels vídeos (`cap_sos_*.jpg`, `cap_int_*.jpg`) retallades al voltant dels leds perquè es vegi si el led està encès o apagat.
-- Vídeos editats (cartell lila, rètols, música pròpia, soroll reduït) a `memoria_tasca2_3/tasca2_sos.mp4` i `tasca3_interruptor.mp4`. A la memòria s'enllacen amb jsDelivr (`https://cdn.jsdelivr.net/gh/paumartinezps5-netizen/repo-para-claudia-@<commit>/...`), que es reprodueix al navegador; raw.githubusercontent els descarrega.
+- Vídeos editats (cartell lila, rètols, música pròpia, soroll reduït) a `memoria_tasca2_3/tasca2_sos.mp4` i `tasca3_interruptor.mp4`. A la memòria s'enllacen des del Drive (carpeta "Robòtica/Vídeos Tasques 2 i 3"), que l'institut no bloqueja. L'enllaç "Qualsevol persona amb l'enllaç" l'ha de posar la Pau (el connector només comparteix amb correus concrets).
+- PDF entregat al Moodle: `memoria_tasca2_3/Memòria Polsador 2 i 3 - Pau Martínez i Enric Vinyes.pdf`.
 
+## Drive (carpeta Robòtica)
+
+- Les memòries van a l'arrel de "Robòtica". Els vídeos editats a "Vídeos Tasques 2 i 3" (una carpeta per tasca), els originals del mòbil i de WhatsApp a "Fotos i vídeos originals", i les memòries velles a "Versions antigues".
 ## Vídeos
 
 - El connector del Drive només baixa fitxers de menys de 10 MB. Els vídeos del mòbil s'han de passar per WhatsApp (els comprimeix) i pujar al Drive.
