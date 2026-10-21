@@ -32,6 +32,6 @@ AUDIO="[1:a]highpass=f=150,lowpass=f=6000,afftdn=nf=-25:nr=25:tn=1,volume=0.25,a
 
 ffmpeg -hide_banner -loglevel error -y -f lavfi -i "$CARDV" -ss "$SS" -to "$TO" -i "$IN" -i "$D/musica.m4a" \
   -filter_complex "[1:v]$CLIPV[c];[0:v][c]xfade=transition=fade:duration=$XF:offset=$(python3 -c "print(round($CARD-$XF,3))"),fade=t=out:st=$(python3 -c "print(round($TOT-0.8,3))"):d=0.8,format=yuv420p[v];$AUDIO" \
-  -map "[v]" -map "[a]" -t "$TOT" -c:v libx264 -preset slow -crf 22 -profile:v high -c:a aac -b:a 160k -ar 44100 -movflags +faststart "$OUT"
+  -map "[v]" -map "[a]" -t "$TOT" -c:v libx264 -preset slow -crf 22 -profile:v main -level 3.1 -c:a aac -b:a 160k -ar 44100 -movflags +faststart "$OUT"
 rm -rf "$TMP"
 ffprobe -v error -show_entries format=duration,size -of compact "$OUT"
