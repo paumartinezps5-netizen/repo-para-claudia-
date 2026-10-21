@@ -30,4 +30,9 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 - Google Doc "Memòria Polsador 2 i 3-Pau Martínez i Enric Vinyes" (id `1OSitvfxTBpIPHvLqVoSLO-YGThzo9jxR32x70aZDjCo`), fitxers a `memoria_tasca2_3/`.
 - Surten els dos codis de la Tasca 2 (`Tasca2_SOS_for` i `Tasca2_SOS`) i el de la Tasca 3 (`Tasca3_Interruptor`), cadascun amb la seva explicació.
 - Té salts de pàgina abans de "4.1" perquè el codi no quedi partit.
-- Pendent: els enllaços dels vídeos (marcats en groc). Els vídeos originals (IMG_7707.MOV, IMG_7708.MOV, ~50 MB) són a l'arrel del Drive i el connector només en baixa fins a 10 MB, així que cal que els passin comprimits.
+- Vídeos editats (cartell lila, rètols, música pròpia, soroll reduït) a `memoria_tasca2_3/tasca2_sos.mp4` i `tasca3_interruptor.mp4`. A la memòria s'enllacen amb jsDelivr (`https://cdn.jsdelivr.net/gh/paumartinezps5-netizen/repo-para-claudia-@<commit>/...`), que es reprodueix al navegador; raw.githubusercontent els descarrega.
+
+## Vídeos
+
+- El connector del Drive només baixa fitxers de menys de 10 MB. Els vídeos del mòbil s'han de passar per WhatsApp (els comprimeix) i pujar al Drive.
+- `eines/musica.py` genera la música de fons (sense drets d'autor) i `eines/editar_video.sh` fa l'edició (necessita `musica.m4a` a `MUSICA_DIR`).
