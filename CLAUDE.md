@@ -7,7 +7,8 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 - Punt mig entre senzill i amb color. Res de capçaleres amb fons de color, quadres destacats, esquemes inventats ni gràfics decoratius.
 - Cada memòria té un color principal diferent:
   - 1.1 LEDs: blau `#1F5C99`.
-  - Les següents (en ordre): verd `#2E7D32`, taronja `#D9480F`, lila `#6A3D9A`, i després es torna a començar.
+  - Tasques 2 i 3 (una sola memòria): lila `#6A3D9A`. Van demanar un color que no recordés el semàfor.
+  - Les següents (en ordre): taronja `#D9480F`, verd `#2E7D32`, blau, lila, i després es torna a començar. Si la memòria parla de leds de colors, millor un color que no sigui verd/groc/vermell.
 - Títol a l'esquerra amb el color principal, subtítol a sota, i noms + "Robòtica · 1r Batxillerat · data" en gris.
 - Apartats numerats ("1. Objectiu", "2. Material"...) amb el color principal. No cal fer servir sempre els mateixos apartats; s'ha d'adaptar a la pràctica.
 - Taules senzilles amb vores grises i la fila de títols amb un to clar del color principal.
@@ -24,15 +25,9 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 
 `memoria_tasca1_1/memoria.html` és la plantilla. Les imatges han de ser públiques perquè Google les pugui carregar, i per això es pugen a aquest repo i es fa servir l'enllaç `raw.githubusercontent.com`. L'HTML es puja al Drive (create_file amb `text/html`), es posa la mida A4 amb l'API de Docs, i s'exporta a PDF per comprovar que no hi ha res tallat entre pàgines.
 
-## Pendent per a la memòria de la Tasca 2 (SOS amb polsador)
+## Tasques 2 i 3 (fet, una sola memòria)
 
-- Color: verd `#2E7D32`.
-- Van ensenyar dos codis al professor i a la memòria hi han de sortir els dos, cadascun amb la seva explicació:
-  - `Tasca2_SOS_for/Tasca2_SOS_for.ino`: versió amb bucles `for`. Guarda com està el botó sense prémer (`repos`) i fa l'SOS quan la lectura canvia.
-  - `Tasca2_SOS/Tasca2_SOS.ino`: versió sense `for`, amb `if (digitalRead(polsador)==HIGH)` i el botó amb resistència pull-down. És la que van triar perquè s'entén millor.
-- Es pot comentar que la versió sense `for` és més llarga però més fàcil de llegir, i que la del `for` és més curta.
-
-## Pendent per a la memòria de la Tasca 3 (polsador com a interruptor)
-
-- Color: taronja `#D9480F`.
-- Codi: `Tasca3_Interruptor/Tasca3_Interruptor.ino`. Mateix muntatge que la Tasca 2 (polsador al pin 2 amb pull-down, led al pin 10).
+- Google Doc "Memòria Polsador 2 i 3-Pau Martínez i Enric Vinyes" (id `1OSitvfxTBpIPHvLqVoSLO-YGThzo9jxR32x70aZDjCo`), fitxers a `memoria_tasca2_3/`.
+- Surten els dos codis de la Tasca 2 (`Tasca2_SOS_for` i `Tasca2_SOS`) i el de la Tasca 3 (`Tasca3_Interruptor`), cadascun amb la seva explicació.
+- Té salts de pàgina abans de "4.1" perquè el codi no quedi partit.
+- Pendent: els enllaços dels vídeos (marcats en groc). Els vídeos originals (IMG_7707.MOV, IMG_7708.MOV, ~50 MB) són a l'arrel del Drive i el connector només en baixa fins a 10 MB, així que cal que els passin comprimits.
