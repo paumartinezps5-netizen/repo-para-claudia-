@@ -41,3 +41,9 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 
 - El connector del Drive només baixa fitxers de menys de 10 MB. Els vídeos del mòbil s'han de passar per WhatsApp (els comprimeix) i pujar al Drive.
 - `eines/musica.py` genera la música de fons (sense drets d'autor) i `eines/editar_video.sh` fa l'edició (necessita `musica.m4a` a `MUSICA_DIR`).
+
+## Tasca 4 / 1.3 Semàfor (esborrany, taronja)
+
+- Google Doc "Memòria Semàfor 1.3-Pau Martínez i Enric Vinyes" (id `12UUsAR6NhLu8wqWLPPvOGAXA_IyGsD-mzgGT5-jWHvU`), fitxers i `gen.py` a `memoria_tasca1_3/`.
+- Pendents marcats en groc al Doc: captura Tinkercad, enllaç del vídeo (`tasca4_semafor.mp4`), opinió personal. Comentaris al `.ino`: els escriuen ells.
+- A Windows, `eines/editar_video.sh` necessita ffmpeg d’`imageio-ffmpeg` i les fonts copiades al directori de treball (la ruta `C:` trenca el drawtext).
