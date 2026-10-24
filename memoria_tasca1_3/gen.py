@@ -76,7 +76,7 @@ body = f"""
 {table([["Led", "Port"], ["Vermell dels cotxes", "13"], ["Groc dels cotxes", "12"], ["Verd dels cotxes", "11"], ["Vermell dels vianants", "9"], ["Verd dels vianants", "8"]], [190, 80])}
 {imgs([("muntatge_costat.jpg", 204, 153, "Els cinc leds: a l'esquerra els dels cotxes i a la dreta els dels vianants"), ("muntatge_dalt.jpg", 115, 153, "El muntatge sencer")])}
 {h3("3.1. Circuit al Tinkercad")}
-{p("Abans de muntar-lo de veritat, vam fer el circuit al Tinkercad amb els mateixos ports. A la dreta de la captura hi ha el codi, que és el mateix que després vam passar a l'Arduino.")}
+{p("Abans de muntar-lo de veritat, vam tornar a provar al Tinkercad el circuit que ja teníem de 4t d'ESO, amb els mateixos ports. A la dreta de la captura hi ha el codi, que és el mateix que després vam passar a l'Arduino.")}
 {imgs([("tinkercad.png", 540, 279, "El circuit i el codi al Tinkercad")])}
 {h2("4. Descripció i funcionament")}
 {h3("4.1. El codi")}
@@ -97,7 +97,8 @@ body = f"""
 {p('Vídeo del funcionament: <a href="' + VID + '">' + VID + "</a>")}
 {h2("5. Opinió personal i possibles millores")}
 {p("Aquesta pràctica ens ha agradat més que les anteriors, perquè al final tens una cosa que s'assembla a un semàfor de veritat. El codi no té res de nou, només digitalWrite i delay, però s'ha de pensar bé l'ordre. Si un led no s'apaga quan toca, ja tens dos colors encesos alhora i el semàfor no té sentit.")}
-{p("També hem vist que en un semàfor el més important és que no hi hagi mai verd per a tots dos. Per això deixem un segon amb els dos vermells encesos abans de cada canvi. Les pampallugues fan que el codi quedi llarg, perquè repetim les mateixes línies, però així l'entenem bé.")}
+{p("També hem vist que en un semàfor el més important és que no hi hagi mai verd per a tots dos. Per això deixem un segon amb els dos vermells encesos abans de cada canvi.")}
+{p("A més, ens ha estat més fàcil perquè l'any passat, a 4t d'ESO, ja vam fer aquesta pràctica (o una de molt semblant) amb el mateix professor, i hem aprofitat el circuit i el codi que teníem al Tinkercad.")}
 {p("Possibles millores:")}
 {ul(["Posar un polsador perquè els vianants demanin passar, i que el semàfor només canviï quan l'apretin.",
      "Afegir un brunzidor que soni mentre els vianants tenen verd.",
