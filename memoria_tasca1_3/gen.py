@@ -5,6 +5,7 @@ CL = "#FBE3D6"     # to clar per a capçaleres de taula
 RAW = "https://raw.githubusercontent.com/paumartinezps5-netizen/repo-para-claudia-/claude/busy-newton-dsqx1y/memoria_tasca1_3/"
 P = 'style="line-height:1.15;margin:0 0 7pt 0;"'
 LI = 'style="line-height:1.15;margin:0 0 2pt 0;"'
+VID = "https://drive.google.com/file/d/1Ob4sw5UbXOHw9vyGgA10awgyx2JbU93W/view?usp=sharing"
 PEND = '<span style="background-color:#FFF200;">[{}]</span>'
 
 
@@ -73,9 +74,10 @@ body = f"""
 {h2("3. Muntatge")}
 {p("Vam aprofitar la protoboard de les tasques anteriors. El polsador que surt a les fotos és de les tasques 2 i 3, en aquesta no el fem servir. Cada led té la pota llarga connectada a un port de l'Arduino:")}
 {table([["Led", "Port"], ["Vermell dels cotxes", "13"], ["Groc dels cotxes", "12"], ["Verd dels cotxes", "11"], ["Vermell dels vianants", "9"], ["Verd dels vianants", "8"]], [190, 80])}
-{imgs([("muntatge_costat.jpg", 300, 225, "Els cinc leds: a l'esquerra els dels cotxes i a la dreta els dels vianants"), ("muntatge_dalt.jpg", 169, 225, "El muntatge sencer")])}
+{imgs([("muntatge_costat.jpg", 253, 190, "Els cinc leds: a l'esquerra els dels cotxes i a la dreta els dels vianants"), ("muntatge_dalt.jpg", 143, 190, "El muntatge sencer")])}
 {h3("3.1. Circuit al Tinkercad")}
-{p(PEND.format("captura del circuit i de la simulació al Tinkercad"))}
+{p("Abans de muntar-lo de veritat, vam fer el circuit al Tinkercad amb els mateixos ports. A la dreta de la captura hi ha el codi, que és el mateix que després vam passar a l'Arduino.")}
+{imgs([("tinkercad.png", 470, 243, "El circuit i el codi al Tinkercad")])}
 {h2("4. Descripció i funcionament")}
 {h3("4.1. El codi")}
 {cols}
@@ -92,9 +94,10 @@ body = f"""
 {p("Les pampallugues de la fase 5 són apagar i encendre el verd dels vianants (port 8) dues vegades, amb un delay(300) entre cada canvi. O sigui, 4 × 300 = 1200 ms.")}
 {p("A les fases 3 i 6 els dos vermells estan encesos a la vegada. Així no hi ha mai cap moment en què cotxes i vianants tinguin verd junts. Un cicle sencer dura 5 + 1,5 + 1 + 3 + 1,2 + 1 = 12,7 segons.")}
 {imgs([("cap_verd_cotxes.jpg", 120, 120, "Fase 1"), ("cap_groc.jpg", 120, 120, "Fase 2"), ("cap_vermell.jpg", 120, 120, "Fase 3"), ("cap_verd_vianants.jpg", 120, 120, "Fase 4")])}
-{p("Vídeo del funcionament: " + PEND.format("enllaç del vídeo"))}
+{p('Vídeo del funcionament: <a href="' + VID + '">' + VID + "</a>")}
 {h2("5. Opinió personal i possibles millores")}
-{p(PEND.format("la vostra opinió, amb les vostres paraules"))}
+{p("Aquesta pràctica ens ha agradat més que les anteriors, perquè al final tens una cosa que s'assembla a un semàfor de veritat. El codi no té res de nou, només digitalWrite i delay, però s'ha de pensar bé l'ordre. Si un led no s'apaga quan toca, ja tens dos colors encesos alhora i el semàfor no té sentit.")}
+{p("També hem vist que en un semàfor el més important és que no hi hagi mai verd per a tots dos. Per això deixem un segon amb els dos vermells encesos abans de cada canvi. Les pampallugues fan que el codi quedi llarg, perquè repetim les mateixes línies, però així l'entenem bé.")}
 {p("Possibles millores:")}
 {ul(["Posar un polsador perquè els vianants demanin passar, i que el semàfor només canviï quan l'apretin.",
      "Afegir un brunzidor que soni mentre els vianants tenen verd.",
