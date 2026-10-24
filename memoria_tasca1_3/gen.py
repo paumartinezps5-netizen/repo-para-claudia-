@@ -74,10 +74,10 @@ body = f"""
 {h2("3. Muntatge")}
 {p("Vam aprofitar la protoboard de les tasques anteriors. El polsador que surt a les fotos és de les tasques 2 i 3, en aquesta no el fem servir. Cada led té la pota llarga connectada a un port de l'Arduino:")}
 {table([["Led", "Port"], ["Vermell dels cotxes", "13"], ["Groc dels cotxes", "12"], ["Verd dels cotxes", "11"], ["Vermell dels vianants", "9"], ["Verd dels vianants", "8"]], [190, 80])}
-{imgs([("muntatge_costat.jpg", 253, 190, "Els cinc leds: a l'esquerra els dels cotxes i a la dreta els dels vianants"), ("muntatge_dalt.jpg", 143, 190, "El muntatge sencer")])}
+{imgs([("muntatge_costat.jpg", 204, 153, "Els cinc leds: a l'esquerra els dels cotxes i a la dreta els dels vianants"), ("muntatge_dalt.jpg", 115, 153, "El muntatge sencer")])}
 {h3("3.1. Circuit al Tinkercad")}
 {p("Abans de muntar-lo de veritat, vam fer el circuit al Tinkercad amb els mateixos ports. A la dreta de la captura hi ha el codi, que és el mateix que després vam passar a l'Arduino.")}
-{imgs([("tinkercad.png", 470, 243, "El circuit i el codi al Tinkercad")])}
+{imgs([("tinkercad.png", 540, 279, "El circuit i el codi al Tinkercad")])}
 {h2("4. Descripció i funcionament")}
 {h3("4.1. El codi")}
 {cols}

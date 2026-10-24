@@ -47,3 +47,10 @@ Pau Martínez Cuadra i Enric Vinyes Huguet. Les memòries van al Drive de la Pau
 - Google Doc "Memòria Semàfor 1.3-Pau Martínez i Enric Vinyes" (id `12UUsAR6NhLu8wqWLPPvOGAXA_IyGsD-mzgGT5-jWHvU`), fitxers i `gen.py` a `memoria_tasca1_3/`.
 - Pendents marcats en groc al Doc: captura Tinkercad, enllaç del vídeo (`tasca4_semafor.mp4`), opinió personal. Comentaris al `.ino`: els escriuen ells.
 - A Windows, `eines/editar_video.sh` necessita ffmpeg d’`imageio-ffmpeg` i les fonts copiades al directori de treball (la ruta `C:` trenca el drawtext).
+
+### Tasca 4 — estat 24/10
+- Doc acabat (3 pàg. A4): captura Tinkercad, opinió, enllaç al vídeo. Vídeo a Drive `Robòtica/Vídeo Tasca 4` (id 1Ob4sw5UbXOHw9vyGgA10awgyx2JbU93W), públic amb enllaç.
+- `Vídeos Tasques 2 i 3` ja és públic amb enllaç.
+- Pujar fitxers grans al Drive: Chrome + input file injectat + DragEvent drop a la pàgina de la carpeta. Compartir: menú ⋮ > Compartir > Acceso general.
+- ffmpeg Windows: vidstab amb fils fa fotogrames fantasma → `-threads 1 -filter_threads 1`.
+- Pendent seu: comentaris al .ino (els escriuen ells) i revisar el circuit del Tinkercad (GND i resistència).
