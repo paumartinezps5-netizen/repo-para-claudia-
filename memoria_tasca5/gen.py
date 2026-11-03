@@ -5,7 +5,7 @@ CL = "#E3F1E4"     # verd clar per a capçaleres de taula
 RAW = "https://raw.githubusercontent.com/paumartinezps5-netizen/repo-para-claudia-/claude/busy-newton-dsqx1y/memoria_tasca5/"
 P = 'style="line-height:1.15;margin:0 0 7pt 0;"'
 LI = 'style="line-height:1.15;margin:0 0 2pt 0;"'
-VID = "PENDENT"
+VID = "https://drive.google.com/file/d/1jE-KkDh4eZrnJPrO563vu6umI3AsbYl3/view?usp=sharing"
 
 
 def h2(t): return f'<h2 style="font-size:14pt;font-weight:bold;color:{C};margin:14pt 0 6pt 0;">{t}</h2>'
@@ -61,11 +61,7 @@ def code(lines, size=10):
 
 src = open("../tasca5/Tasca5_Monitor.ino", encoding="utf-8").read().splitlines()
 src = [l for l in src if not l.strip().startswith("//")]   # sense comentaris a la memòria
-cut = src.index("void loop() {")                           # parteix el codi en dues columnes
-cols = (f'<table style="border-collapse:collapse;" cellpadding="0" cellspacing="0"><tr>'
-        f'<td width="200" style="border:1px solid #FFFFFF;padding:0 6pt 0 0;vertical-align:top;">{code(src[:cut], 9.5)}</td>'
-        f'<td width="330" style="border:1px solid #FFFFFF;padding:0 6pt 0 0;vertical-align:top;">{code(src[cut:], 9.5)}</td>'
-        f"</tr></table>")
+cols = code(src, 9.5)
 
 pdf = ["char option = Serial.read();",
        "if (option >= '1' && option <= '9') {",
@@ -99,7 +95,7 @@ body = f"""
         [cw("Serial.read()"), "Llegeix un sol caràcter, el primer que ha arribat."],
         [cw("Serial.print()"), "Escriu al monitor sèrie i es queda a la mateixa línia."],
         [cw("Serial.println()"), "Escriu al monitor sèrie i després salta de línia."],
-        [cw("Serial.parseInt()"), "Llegeix el número sencer que hem escrit (per exemple 12) i ens el dona com a número de veritat."]], [150, 380])}
+        [cw("Serial.parseInt()"), "Llegeix el número sencer que hem escrit (per exemple 12) i ens el dona com a número de veritat."]], [175, 355])}
 {h3("4.3. El que més ens va costar: el codi ASCII")}
 {p("Primer vam fer els exemples del PDF. En el primer, la variable " + cw("option") + " guarda el que llegim amb " + cw("Serial.read()") + ". Si és una " + cw("'a'") + " el led s'apaga i si és una " + cw("'b'") + " s'encén. Això ho vam entendre bé.")}
 {p("El que ens va fer donar més voltes va ser l'exemple dels números. Quan escrivim un 5 al monitor, l'Arduino no rep el número 5, sinó el caràcter " + cw("'5'") + ". L'ordinador guarda cada caràcter amb un número de la taula ASCII, i el " + cw("'5'") + " hi val 53. Per tant, si féssim el " + cw("for") + " amb " + cw("option") + " tal com arriba, el led faria 53 pampallugues en lloc de 5.")}
@@ -124,7 +120,7 @@ body = f"""
         ["9", "El led s'encendra 9 vegades", "9", "9 s"],
         ["10", "El led s'encendra 10 vegades", "10", "10 s"],
         ["12", "El led s'encendra 12 vegades", "12", "12 s"],
-        ["19", "El led s'encendra 19 vegades", "19", "19 s"]], [120, 220, 90, 60])}
+        ["19", "El led s'encendra 19 vegades", "19", "19 s"]], [105, 210, 115, 60])}
 {p("Amb els números de dues xifres també funciona, que era el que no podíem fer amb l'exemple del PDF.")}
 {imgs([("cap_on.jpg", 140, 140, "Led encès (i el L de la placa)"), ("cap_off.jpg", 140, 140, "Led apagat"), ("monitor.jpg", 200, 140, "El que ens contesta l'Arduino")])}
 {p('Vídeo del funcionament: <a href="' + VID + '">' + VID + "</a>")}
