@@ -12,7 +12,7 @@ def h2(t): return f'<h2 style="font-size:14pt;font-weight:bold;color:{C};margin:
 def h3(t): return f'<h3 style="font-size:12pt;font-weight:bold;color:{C};margin:10pt 0 4pt 0;">{t}</h3>'
 def p(t): return f"<p {P}>{t}</p>"
 def ul(items): return "<ul>" + "".join(f"<li {LI}>{i}</li>" for i in items) + "</ul>"
-def cw(t): return f'<span style="font-family:Courier New;">{html.escape(t)}</span>'
+def cw(t): return html.escape(t)                      # sense lletra de codi dins del text
 SP = '<p style="line-height:1.15;margin:0;">&nbsp;</p>'
 
 
