@@ -82,7 +82,7 @@ body = f"""
 {p("El muntatge és el més senzill de totes les tasques: només hi ha un led amb una resistència. La pota llarga del led va al port 13 i la curta a GND. El polsador que surt a les fotos és de tasques anteriors, en aquesta no el fem servir.")}
 {table([["Element", "On va connectat"], ["Led vermell (amb resistència)", "Port 13 i GND"], ["Comunicació amb l'ordinador", "Cable USB (pins 0 RX i 1 TX)"]], [200, 200])}
 {p("La placa també té un led petit, el L, que està connectat per dins al port 13. Per això, quan el nostre led s'encén, aquest també s'encén.")}
-{imgs([("muntatge.jpg", 128, 230, "El muntatge: el led amb la resistència"), ("general.jpg", 330, 184, "El codi i el monitor sèrie a l'ordinador, amb la protoboard al davant")])}
+{imgs([("muntatge.jpg", 128, 230, "El muntatge: el led amb la resistència"), ("general.jpg", 330, 184, "El codi i el monitor sèrie a l'ordinador")])}
 {h2("4. El port sèrie: què hem après")}
 {p("La teoria la vam treure del PDF del port sèrie del Moodle. Aquí expliquem el que vam entendre i també el que ens va costar més.")}
 {h3("4.1. Què és el port sèrie")}
@@ -95,12 +95,12 @@ body = f"""
         [cw("Serial.read()"), "Llegeix un sol caràcter, el primer que ha arribat."],
         [cw("Serial.print()"), "Escriu al monitor sèrie i es queda a la mateixa línia."],
         [cw("Serial.println()"), "Escriu al monitor sèrie i després salta de línia."],
-        [cw("Serial.parseInt()"), "Llegeix el número sencer que hem escrit (per exemple 12) i ens el dona com a número de veritat."]], [175, 355])}
+        [cw("Serial.parseInt()"), "Llegeix el número sencer que hem escrit (per exemple 12) i ens el dona com a número de veritat."]], [200, 441])}
 {h3("4.3. El que més ens va costar: el codi ASCII")}
 {p("Primer vam fer els exemples del PDF. En el primer, la variable " + cw("option") + " guarda el que llegim amb " + cw("Serial.read()") + ". Si és una " + cw("'a'") + " el led s'apaga i si és una " + cw("'b'") + " s'encén. Això ho vam entendre bé.")}
 {p("El que ens va fer donar més voltes va ser l'exemple dels números. Quan escrivim un 5 al monitor, l'Arduino no rep el número 5, sinó el caràcter " + cw("'5'") + ". L'ordinador guarda cada caràcter amb un número de la taula ASCII, i el " + cw("'5'") + " hi val 53. Per tant, si féssim el " + cw("for") + " amb " + cw("option") + " tal com arriba, el led faria 53 pampallugues en lloc de 5.")}
 {table([["Caràcter que escrivim", "'0'", "'1'", "'5'", "'9'", "'a'", "'b'"],
-        ["Valor ASCII que rep l'Arduino", "48", "49", "53", "57", "97", "98"]], [180, 50, 50, 50, 50, 50, 50])}
+        ["Valor ASCII que rep l'Arduino", "48", "49", "53", "57", "97", "98"]], [201, 73, 73, 73, 73, 73, 73])}
 {p("Per això l'exemple del PDF fa " + cw("option -= '0';") + ". Com que a la taula ASCII els números van seguits, si al " + cw("'5'") + " (53) li restem el " + cw("'0'") + " (48) ens queda 5, que és el valor real.")}
 {code(pdf, 9.5)}
 {p("Aquí vam entendre la diferència entre posar les cometes o no: " + cw("'5'") + " entre cometes és el caràcter, que val 53, i " + cw("5") + " sense cometes és el número. Si al codi escrivíssim " + cw("option == 5") + " sense cometes, no es compliria mai, perquè el que arriba és el 53.")}
@@ -120,9 +120,9 @@ body = f"""
         ["9", "El led s'encendra 9 vegades", "9", "9 s"],
         ["10", "El led s'encendra 10 vegades", "10", "10 s"],
         ["12", "El led s'encendra 12 vegades", "12", "12 s"],
-        ["19", "El led s'encendra 19 vegades", "19", "19 s"]], [105, 210, 115, 60])}
+        ["19", "El led s'encendra 19 vegades", "19", "19 s"]], [137, 275, 151, 79])}
 {p("Amb els números de dues xifres també funciona, que era el que no podíem fer amb l'exemple del PDF.")}
-{imgs([("cap_on.jpg", 140, 140, "Led encès (i el L de la placa)"), ("cap_off.jpg", 140, 140, "Led apagat"), ("monitor.jpg", 200, 140, "El que ens contesta l'Arduino")])}
+{imgs([("cap_on.jpg", 140, 140, "Led encès"), ("cap_off.jpg", 140, 140, "Led apagat"), ("monitor.jpg", 200, 140, "El que ens contesta l'Arduino")])}
 {p('Vídeo del funcionament: <a href="' + VID + '">' + VID + "</a>")}
 {h2("6. Opinió personal i possibles millores")}
 {p("En aquesta pràctica, per primera vegada, l'ordinador i l'Arduino es passen informació, i ja no només fem encendre i apagar leds. Hem après a fer servir " + cw("Serial.begin") + ", " + cw("Serial.available") + ", " + cw("Serial.read") + " i " + cw("Serial.print") + ".")}
