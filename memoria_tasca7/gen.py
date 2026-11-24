@@ -5,7 +5,7 @@ CL = "#E8DFF2"     # lila clar per a capçaleres de taula
 RAW = "https://raw.githubusercontent.com/paumartinezps5-netizen/repo-para-claudia-/claude/busy-newton-dsqx1y/memoria_tasca7/"
 P = 'style="line-height:1.15;margin:0 0 7pt 0;"'
 LI = 'style="line-height:1.15;margin:0 0 2pt 0;"'
-VID = "https://drive.google.com/file/d/13URCd0k92le8KIF0xQNIHirZ0gmgZJLJ/view?usp=sharing"
+VID = "https://drive.google.com/file/d/1q9dAYGxMok-yaZGA0fDDkDw_JIk-bpVQ/view?usp=sharing"
 TK = "https://www.tinkercad.com/things/f1VX2OMWFiM-dazzling-habbi"
 
 
@@ -136,7 +136,7 @@ body = f"""
         ["8", "Verd", "Vermell", "–", "Torna al repòs"]], [42, 68, 118, 105, 148], center={0})}
 {p("Els dos moments en què tots dos semàfors estan en vermell són de seguretat, perquè ningú creui mentre l'altre encara passa.")}
 {h3("6.2. El vídeo")}
-{p("Al vídeo es veu el semàfor dels cotxes passant a groc i a vermell, i els vianants en verd mentre el brunzidor pita cada cop més ràpid. Hi hem afegit un zoom als leds, perquè des de lluny costaven de veure, i hem tret el soroll de la classe perquè només se senti el brunzidor, amb una mica de música de fons.")}
+{p("Al vídeo es veu el semàfor dels cotxes passant a groc i a vermell, i els vianants en verd mentre el brunzidor pita cada cop més ràpid.")}
 {imgs([("video_groc.jpg", 232, 149, "Els cotxes passen a groc"), ("video_vianants.jpg", 232, 149, "Vermell per als cotxes i verd per als vianants")])}
 {p('Vídeo: <a href="' + VID + '">' + VID + "</a>")}
 {h2("7. Opinió personal i possibles millores")}
