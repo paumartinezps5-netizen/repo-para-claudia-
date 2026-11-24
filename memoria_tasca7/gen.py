@@ -107,7 +107,7 @@ body = f"""
         ["Polsador", "Una pota a 5V i l'altra al port 7"],
         ["Brunzidor", "Port 3 i GND"]], [170, 311])}
 {p("L'Enric munta molt bé, i amb tants cables això ens ha ajudat molt.")}
-{imgs([("foto1.jpg", 232, 174, "Vista des de dalt"), ("foto2.jpg", 131, 174, "Els leds i les dues resistències")])}
+{imgs([("foto_dalt.jpg", 232, 174, "Vista des de dalt"), ("foto2.jpg", 131, 174, "Els leds i les dues resistències")])}
 {imgs([("foto3.jpg", 300, 225, "El muntatge acabat, amb el brunzidor i el polsador")])}
 {h2("4. El Tinkercad")}
 {p("El Tinkercad és una pàgina web on es poden muntar circuits amb Arduino i simular-los sense tenir la placa. Hi posem els components, els connectem amb cables i hi enganxem el codi. Quan cliquem «Inicia la simulació», el circuit funciona com si fos de veritat i, en aquest cas, podem prémer el polsador amb el ratolí.")}
