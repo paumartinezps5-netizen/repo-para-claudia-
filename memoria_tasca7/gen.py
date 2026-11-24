@@ -107,12 +107,11 @@ body = f"""
         ["Polsador", "Una pota a 5V i l'altra al port 7"],
         ["Brunzidor", "Port 3 i GND"]], [170, 311])}
 {p("L'Enric munta molt bé, i amb tants cables això ens ha ajudat molt.")}
-{imgs([("foto_dalt.jpg", 232, 174, "Vista des de dalt"), ("foto2.jpg", 131, 174, "Els leds i les dues resistències")])}
-{imgs([("foto3.jpg", 300, 225, "El muntatge acabat, amb el brunzidor i el polsador")])}
+{imgs([("foto_dalt.jpg", 155, 116, "Vista des de dalt"), ("foto2.jpg", 87, 116, "Leds i resistències"), ("foto3.jpg", 155, 116, "Amb el brunzidor i el polsador")])}
 {h2("4. El Tinkercad")}
 {p("El Tinkercad és una pàgina web on es poden muntar circuits amb Arduino i simular-los sense tenir la placa. Hi posem els components, els connectem amb cables i hi enganxem el codi. Quan cliquem «Inicia la simulació», el circuit funciona com si fos de veritat i, en aquest cas, podem prémer el polsador amb el ratolí.")}
 {p("Hem copiat al Tinkercad el mateix circuit que vam muntar a classe: els cinc leds als mateixos ports, una sola resistència per a cada semàfor, el polsador entre 5V i el port 7 i el brunzidor al port 3. Hem posat colors als cables per entendre'l millor: negre per a GND, vermell per a 5V i un color diferent per a cada led.")}
-{imgs([("tk_circuit2.jpg", 380, 262, "El circuit al Tinkercad")])}
+{imgs([("tk_circuit2.jpg", 330, 227, "El circuit al Tinkercad")])}
 {imgs([("tk_cotxes.jpg", 230, 93, "Simulació: verd per als cotxes, vermell per als vianants"), ("tk_vianants.jpg", 230, 93, "Simulació: vermell per als cotxes, verd per als vianants")])}
 {p("Hi ha dues diferències amb el muntatge real. A la protoboard de classe la línia de menys està partida pel mig, i per això cada semàfor té la seva resistència. Al Tinkercad la línia és sencera, i per separar-los hem fet servir la línia de menys de dalt per als cotxes i la de baix per als vianants. L'altra és el brunzidor: el del Tinkercad és un piezo passiu, que només sona si li enviem una nota amb " + cw("tone()") + ". Amb " + cw("digitalWrite()") + ", com al nostre codi, a la simulació no se sent. El nostre brunzidor de classe sí que sona amb " + cw("digitalWrite()") + ", perquè ja fa el so ell sol.")}
 {p('Enllaç al Tinkercad: <a href="' + TK + '">' + TK + "</a>")}
@@ -125,6 +124,7 @@ body = f"""
 {p("Aquest bloc encén i apaga el verd dels vianants i el brunzidor 4 vegades, amb 300 ms cada cop. Després n'hi ha un altre de 6 vegades amb 150 ms i un altre de 8 vegades amb 75 ms. Així les pampallugues van cada cop més ràpid.")}
 {h3("5.3. Sincronitzar el led i el brunzidor")}
 {p("Perquè el led i el brunzidor vagin junts, els encenem i els apaguem a les mateixes línies, sense cap " + cw("delay") + " entre mig. Com que l'Arduino fa les instruccions tan ràpid, sembla que passin a la vegada.")}
+<p style="page-break-before:always;margin:0;"></p>
 {h2("6. Descripció i funcionament")}
 {h3("6.1. El codi")}
 {cols}
