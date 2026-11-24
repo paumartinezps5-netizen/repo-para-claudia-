@@ -145,12 +145,13 @@ body = f"""
 {imgs([("video_groc.jpg", 232, 149, "Hem premut el polsador: els cotxes passen a groc"), ("video_vianants.jpg", 232, 149, "Vermell per als cotxes i verd per als vianants")])}
 {p('Vídeo: <a href="' + VID + '">' + VID + "</a>")}
 {h2("7. Opinió personal i possibles millores")}
-{p("Aquesta pràctica ens ha costat bastant. És la més llarga que hem fet fins ara, amb molts cables i moltes coses a la vegada: cinc leds, un polsador i un brunzidor. Vam haver de provar diverses versions del codi fins que tot va funcionar com volíem, sobretot amb el brunzidor.")}
+{p("Aquesta pràctica ens ha costat bastant. És la més llarga que hem fet fins ara, amb molts cables i moltes coses a la vegada: cinc leds, un polsador i un brunzidor. El que més ens va costar va ser el brunzidor.")}
+{p("Al principi el brunzidor no sonava i no aconseguíem que funcionés. Pensàvem que el problema era del codi i en vam provar diverses versions, però al final el problema era el brunzidor, i el professor ens en va deixar un altre. També el vam passar del pin 2 al 3, perquè al 2 no funcionava. Després vam provar de fer-lo sonar amb " + cw("tone()") + ", però sonava molt fluix. Amb " + cw("digitalWrite()") + " sona bé, i per això el codi final el fa servir.")}
 {p("El muntatge va anar bé gràcies a l'Enric, que munta molt bé. Al final el semàfor fa tot el que demanava la pràctica i n'estem contents.")}
 {p("Possibles millores:")}
 {ul(["Posar una resistència a cada led. Amb una sola per semàfor, quan n'hi ha dos d'encesos alhora brillen una mica menys.",
      "Posar una resistència de 10 kΩ del port 7 a GND (resistència de pull-down) o fer servir " + cw("INPUT_PULLUP") + ". Ara, quan no premem, el port 7 queda a l'aire i a vegades pot llegir HIGH sense que ningú premi.",
-     "Fer sonar el brunzidor amb " + cw("tone()") + ", que així també se sent al Tinkercad i podem triar la nota."])}
+     "Fer una versió del codi amb " + cw("tone()") + " només per al Tinkercad, perquè allà el piezo només sona així."])}
 """
 
 open("memoria.html", "w", encoding="utf-8").write(
