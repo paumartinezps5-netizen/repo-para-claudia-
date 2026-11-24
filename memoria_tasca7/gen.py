@@ -112,7 +112,7 @@ body = f"""
 {h2("4. El Tinkercad")}
 {p("El Tinkercad és una pàgina web on es poden muntar circuits amb Arduino i simular-los sense tenir la placa. Hi posem els components, els connectem amb cables i hi enganxem el codi. Quan cliquem «Inicia la simulació», el circuit funciona com si fos de veritat i, en aquest cas, podem prémer el polsador amb el ratolí.")}
 {p("Hem copiat al Tinkercad el mateix circuit que vam muntar a classe: els cinc leds als mateixos ports, una sola resistència per a cada semàfor, el polsador entre 5V i el port 7 i el brunzidor al port 3. Hem posat colors als cables per entendre'l millor: negre per a GND, vermell per a 5V i un color diferent per a cada led.")}
-{imgs([("tk_circuit.jpg", 420, 284, "El circuit al Tinkercad")])}
+{imgs([("tk_circuit2.jpg", 380, 262, "El circuit al Tinkercad")])}
 {imgs([("tk_cotxes.jpg", 230, 93, "Simulació: verd per als cotxes, vermell per als vianants"), ("tk_vianants.jpg", 230, 93, "Simulació: vermell per als cotxes, verd per als vianants")])}
 {p("Hi ha dues diferències amb el muntatge real. A la protoboard de classe la línia de menys està partida pel mig, i per això cada semàfor té la seva resistència. Al Tinkercad la línia és sencera, i per separar-los hem fet servir la línia de menys de dalt per als cotxes i la de baix per als vianants. L'altra és el brunzidor: el del Tinkercad és un piezo passiu, que només sona si li enviem una nota amb " + cw("tone()") + ". Amb " + cw("digitalWrite()") + ", com al nostre codi, a la simulació no se sent. El nostre brunzidor de classe sí que sona amb " + cw("digitalWrite()") + ", perquè ja fa el so ell sol.")}
 {p('Enllaç al Tinkercad: <a href="' + TK + '">' + TK + "</a>")}
@@ -135,14 +135,14 @@ body = f"""
         ["2", "Groc", "Vermell", "–", "1,5 s"],
         ["3", "Vermell", "Vermell", "–", "1 s (seguretat)"],
         ["4", "Vermell", "Verd", "3 pitets", "200 ms sí, 600 ms no"],
-        ["5", "Vermell", "Verd que parpelleja", "Pita amb el led", "4 × 300, 6 × 150, 8 × 75 ms"],
+        ["5", "Vermell", "Verd que fa pampallugues", "Pita amb el led", "4 × 300, 6 × 150, 8 × 75 ms"],
         ["6", "Vermell", "Verd fix", "Pitet llarg", "1 s"],
         ["7", "Vermell", "Vermell", "–", "1 s (seguretat)"],
-        ["8", "Verd", "Vermell", "–", "Torna al repòs"]], [35, 75, 130, 105, 136], center={0})}
+        ["8", "Verd", "Vermell", "–", "Torna al repòs"]], [42, 68, 118, 105, 148], center={0})}
 {p("Els segons en què els dos semàfors estan en vermell són de seguretat, perquè ningú creui mentre l'altre encara passa. Quan acaba la seqüència, el loop torna a començar i el semàfor queda en repòs fins que tornem a prémer el polsador.")}
 {h3("6.2. El vídeo")}
 {p("Al vídeo es veu com premem el polsador, el semàfor dels cotxes passa a groc i a vermell, i els vianants es posen en verd mentre el brunzidor pita cada cop més ràpid.")}
-{imgs([("vid1.jpg", 232, 129, "Premem el polsador"), ("vid2.jpg", 232, 129, "El semàfor canvia")])}
+{imgs([("video_groc.jpg", 232, 149, "Hem premut el polsador: els cotxes passen a groc"), ("video_vianants.jpg", 232, 149, "Vermell per als cotxes i verd per als vianants")])}
 {p('Vídeo: <a href="' + VID + '">' + VID + "</a>")}
 {h2("7. Opinió personal i possibles millores")}
 {p("Aquesta pràctica ens ha costat bastant. És la més llarga que hem fet fins ara, amb molts cables i moltes coses a la vegada: cinc leds, un polsador i un brunzidor. Vam haver de provar diverses versions del codi fins que tot va funcionar com volíem, sobretot amb el brunzidor.")}
