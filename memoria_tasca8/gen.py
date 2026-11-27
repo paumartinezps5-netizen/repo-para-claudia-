@@ -65,10 +65,10 @@ def code(lines, size=9.5):
             + lines_html(lines) + "</p>")
 
 
-def code_cols(cols, size=9):
+def code_cols(cols, size=9, w=214):
     out = '<table style="border-collapse:collapse;" cellpadding="0" cellspacing="0"><tr>'
     for c in cols:
-        out += (f'<td width="214" style="border:1px solid #FFFFFF;padding:0 4pt;vertical-align:top;">'
+        out += (f'<td width="{w}" style="border:1px solid #FFFFFF;padding:0 4pt;vertical-align:top;">'
                 f'<p style="font-family:Courier New;font-size:{size}pt;color:#434F54;margin:0;line-height:1.0;">'
                 + lines_html(c) + "</p></td>")
     return out + "</tr></table>" + SP
@@ -77,8 +77,8 @@ def code_cols(cols, size=9):
 src = open("../tasca8/Dau.ino", encoding="utf-8").read().splitlines()
 cs = [i for i, l in enumerate(src) if l.strip().startswith("case")]
 assert len(cs) == 6, cs
-# talla just abans d'un case, perquè cap case quedi partit entre columnes
-cols = code_cols([src[:cs[2]], src[cs[2]:cs[4]], src[cs[4]:]])
+# 2 columnes (amb 3 les línies es partien); tall just abans del case 4
+cols = code_cols([src[:cs[3]], src[cs[3]:]], w=321)
 
 body = f"""
 <h1 style="font-size:24pt;font-weight:bold;color:{C};margin:0 0 2pt 0;">Tasca 8 – Dau electrònic</h1>
@@ -107,7 +107,6 @@ body = f"""
 {h2("4. Els problemes que hem tingut")}
 {p("Aquesta pràctica ens ha anat bastant bé, perquè ja teníem la base del codi de l'any passat. El que vam haver de canviar va ser que, quan tiràvem el dau, el primer led es quedava sempre encès. Com que el led del port 12 s'encén amb tots els números, no quedava clar quan acabava una tirada i començava la següent, i això creava confusió.")}
 {p("El professor ens va dir que els leds s'havien d'apagar després de cada tirada. Per fer-ho, a cada " + cw("case") + " hi hem afegit un " + cw("delay(2000)") + " i després hem apagat amb " + cw("LOW") + " els mateixos leds que havíem encès. Com que hi ha sis " + cw("case") + " i cadascun encén un nombre diferent de leds, ho vam haver de canviar un per un, i va ser una mica pesat.")}
-<br style="page-break-before:always;clear:both">
 {h2("5. Descripció i funcionament")}
 {h3("5.1. El codi")}
 {cols}
