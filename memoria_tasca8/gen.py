@@ -127,7 +127,7 @@ muntatge += [["Pota curta dels leds", "Línia de menys → resistència de 220 �
              ["Polsador", "Una pota a 5V i l'altra al port 13, amb la seva resistència"]]
 
 dau = [["Surt"] + [str(p) for p, _, _ in ORDRE]]
-dau += [[str(n)] + [dot(col if i < n else OFF) for i, (_, _, col) in enumerate(ORDRE)] for n in range(1, 7)]
+dau += [[str(n)] + [dot(col if i < n else OFF, 12) for i, (_, _, col) in enumerate(ORDRE)] for n in range(1, 7)]
 
 body = f"""
 <h1 style="font-size:24pt;font-weight:bold;color:{C};margin:0 0 2pt 0;">Tasca 8 – Dau electrònic</h1>
@@ -143,8 +143,7 @@ body = f"""
 {p("Els sis leds estan en fila a la part de baix de la protoboard. La pota llarga va al port i la curta a la línia de menys, que va a GND amb una resistència. El polsador està a dalt, entre 5V i el port 13.")}
 {table(muntatge, [190, 291])}
 {p("El primer led que s'encén és el groc del port 12, el de l'extrem de la fila, i a partir d'aquí van seguint cap a l'altra punta.")}
-{imgs([("foto_leds.jpg", 200, 150, "Els sis leds"), ("foto_placa.jpg", 200, 150, "L'Arduino i el polsador")])}
-{imgs([("foto_dalt.jpg", 113, 150, "Vista des de dalt")])}
+{imgs([("foto_dalt.jpg", 94, 125, "Vista des de dalt"), ("foto_leds.jpg", 167, 125, "Els sis leds"), ("foto_placa.jpg", 167, 125, "L'Arduino i el polsador")])}
 {h2("4. Com hem arribat al codi final")}
 {steps(["Vam partir del codi del dau que el Pau va fer l'any passat i el vam deixar amb switch i case, com al Morse de la Tasca 6, perquè ens és més fàcil de seguir que un for.",
         "Quan el provàvem, el led del port 12 es quedava sempre encès. Com que s'encén amb tots els números, no es veia quan acabava una tirada i començava la següent, i això creava confusió. El professor ens va dir que els leds s'havien d'apagar després de cada tirada.",
@@ -162,9 +161,8 @@ body = f"""
 {p("Mentre dura el delay l'Arduino no mira el polsador, o sigui que si el premem durant aquests 2 segons no passa res.")}
 {h3("5.2. El vídeo")}
 {p("Al vídeo tirem el dau quatre vegades: surten un 2, un 4 i dos 2 més, i es veu com els leds s'apaguen sols als 2 segons. Al final el gravem de costat perquè es vegin bé els sis leds.")}
-{imgs([("video_3.0.jpg", 140, 157, "Surt un 2"), ("video_5.0.jpg", 140, 157, "Surt un 4")])}
-{imgs([("video_6.6.jpg", 140, 157, "Als 2 segons s'apaguen"), ("video_12.5.jpg", 140, 157, "Els leds de costat")])}
-{p('Vídeo: <a href="' + VID + '">' + VID + "</a>")}
+{imgs([("video_3.0.jpg", 102, 114, "Surt un 2"), ("video_5.0.jpg", 102, 114, "Surt un 4"), ("video_6.6.jpg", 102, 114, "Als 2 s s'apaguen"), ("video_12.5.jpg", 102, 114, "De costat")])}
+{p('Enllaç al vídeo: <a href="' + VID + '">Vídeo Tasca 8 - Dau</a>')}
 {h2("6. Opinió personal i possibles millores")}
 {p("Aquesta pràctica ens ha sigut bastant fàcil, perquè vam recuperar el codi del dau que el Pau va fer l'any passat. L'hem retocat una mica perquè els leds s'apaguin després de dos segons, ja que el primer led sempre es quedava encès i creava confusió. Canviar-ho ha sigut una mica pesat, però ara es veu clar quan surt cada número.")}
 {p("Coses que es podrien millorar:")}
