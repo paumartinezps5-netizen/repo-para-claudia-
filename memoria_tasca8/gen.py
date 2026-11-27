@@ -74,11 +74,60 @@ def code_cols(cols, size=9, w=214):
     return out + "</tr></table>" + SP
 
 
+GROC, VERD, VERM, OFF = "#E6A800", "#2E9E3E", "#D62828", "#D3D3D3"
+ORDRE = [(12, "groc", GROC), (11, "verd", VERD), (10, "vermell", VERM), (9, "verd", VERD), (8, "groc", GROC), (7, "vermell", VERM)]
+
+
+def dot(col, size=13): return f'<span style="color:{col};font-size:{size}pt;">●</span>'
+
+
+def steps(items):
+    out = '<table style="border-collapse:collapse;" cellpadding="0" cellspacing="0">'
+    for i, t in enumerate(items, 1):
+        out += (f'<tr><td width="26" style="background-color:{C};border:2px solid #FFFFFF;padding:3pt 0;vertical-align:middle;">'
+                f'<p style="font-size:13pt;font-weight:bold;color:#FFFFFF;text-align:center;margin:0;">{i}</p></td>'
+                f'<td width="455" style="background-color:#F1F7F1;border:2px solid #FFFFFF;padding:3pt 7pt;vertical-align:middle;">'
+                f'<p style="margin:0;line-height:1.15;">{t}</p></td></tr>')
+    return out + "</table>" + SP
+
+
+def snippet(lines, new=()):
+    out = []
+    for i, l in enumerate(lines):
+        h = lines_html([l])
+        if i in new:
+            h = f'<span style="background-color:{CL};">{h}</span>'
+        out.append(h)
+    return ('<p style="font-family:Courier New;font-size:9pt;color:#434F54;margin:0;line-height:1.0;">'
+            + "<br>".join(out) + "</p>")
+
+
+def compare(a, b):
+    def cell(title, body):
+        return (f'<td width="232" style="border:1px solid #BFBFBF;padding:4pt 8pt;vertical-align:top;">'
+                f'<p style="font-size:10.5pt;font-weight:bold;color:{C};margin:0 0 3pt 0;">{title}</p>{body}</td>')
+    return ('<table style="border-collapse:collapse;" cellpadding="0" cellspacing="0"><tr>'
+            + cell(*a) + cell(*b) + "</tr></table>" + SP)
+
+
 src = open("../tasca8/Dau.ino", encoding="utf-8").read().splitlines()
 cs = [i for i, l in enumerate(src) if l.strip().startswith("case")]
 assert len(cs) == 6, cs
 # 2 columnes (amb 3 les línies es partien); tall just abans del case 4
 cols = code_cols([src[:cs[3]], src[cs[3]:]], w=321)
+
+ABANS = ["case 2:", "  digitalWrite(12, HIGH);", "  digitalWrite(11, HIGH);", "  break;"]
+ARA = ["case 2:", "  digitalWrite(12, HIGH);", "  digitalWrite(11, HIGH);", "  delay(2000);",
+       "  digitalWrite(12, LOW);", "  digitalWrite(11, LOW);", "  break;"]
+assert all(l.strip() in [s.strip() for s in src] for l in ARA)
+
+muntatge = [["Element", "On va connectat"]]
+muntatge += [[f"{dot(col, 11)} Led {nom}", f"Port {port}"] for port, nom, col in ORDRE]
+muntatge += [["Pota curta dels leds", "Línia de menys → resistència de 220 Ω → GND"],
+             ["Polsador", "Una pota a 5V i l'altra al port 13, amb la seva resistència"]]
+
+dau = [["Surt"] + [str(p) for p, _, _ in ORDRE]]
+dau += [[str(n)] + [dot(col if i < n else OFF) for i, (_, _, col) in enumerate(ORDRE)] for n in range(1, 7)]
 
 body = f"""
 <h1 style="font-size:24pt;font-weight:bold;color:{C};margin:0 0 2pt 0;">Tasca 8 – Dau electrònic</h1>
@@ -86,50 +135,41 @@ body = f"""
 <p style="font-size:10.5pt;color:#555555;margin:0;">Pau Martínez Cuadra i Enric Vinyes Huguet</p>
 <p style="font-size:10.5pt;color:#555555;margin:0 0 6pt 0;">Robòtica · 1r Batxillerat · 27/11/2026</p>
 {h2("1. Descripció de la pràctica")}
-{p("En aquesta tasca havíem de fer un dau electrònic amb 6 leds. Quan premem el polsador, ha de sortir un número de l'1 al 6, com si tiréssim un dau de sis cares.")}
-{p("Es podia fer de dues maneres: que s'encengués només el led del número que surt, o que s'encenguessin tants leds com el número. Nosaltres hem triat la segona: si surt un 3, s'encenen tres leds.")}
-{p("Per començar vam recuperar el codi del dau que el Pau va fer l'any passat, i després l'hem retocat perquè els leds s'apaguin sols al cap de dos segons.")}
+{p("Havíem de fer un dau electrònic amb 6 leds: prems el polsador i surt un número de l'1 al 6, com un dau normal.")}
+{p("L'enunciat deixava triar entre encendre només el led del número (manera A) o encendre tants leds com el número (manera B). Nosaltres hem fet la B: si surt un 3, s'encenen tres leds.")}
 {h2("2. Material")}
-{ul(["Arduino UNO i cable USB", "Protoboard", "6 leds: 2 vermells, 2 grocs i 2 verds", "2 resistències: una per als leds (220 Ω) i una per al polsador", "1 polsador", "Cables", "Ordinador amb l'Arduino IDE"])}
+{ul(["Arduino UNO i cable USB", "Protoboard", "6 leds: 2 grocs, 2 verds i 2 vermells", "2 resistències: una per als leds (220 Ω) i una per al polsador", "1 polsador", "Cables", "Ordinador amb l'Arduino IDE"])}
 {h2("3. Muntatge")}
-{p("Els sis leds van en fila a la part de baix de la protoboard. La pota llarga de cada led va al seu port i la curta a la línia de menys, que està connectada a GND amb una resistència. El polsador està a la part de dalt i va connectat a 5V i al port 13.")}
-{table([["Element", "On va connectat"],
-        ["Led groc (el primer que s'encén)", "Port 12"],
-        ["Led verd", "Port 11"],
-        ["Led vermell", "Port 10"],
-        ["Led verd", "Port 9"],
-        ["Led groc", "Port 8"],
-        ["Led vermell (l'últim)", "Port 7"],
-        ["Pota curta dels leds", "Línia de menys → resistència de 220 Ω → GND"],
-        ["Polsador", "Una pota a 5V i l'altra al port 13, amb la seva resistència"]], [190, 291])}
-{p("L'ordre dels ports és important: els leds s'encenen sempre començant pel 12, així que el número es llegeix comptant des del led groc del final de la fila. L'Enric, que munta molt bé, ho va deixar tot ben ordenat.")}
-{imgs([("foto_dalt.jpg", 87, 116, "Vista des de dalt"), ("foto_leds.jpg", 155, 116, "Els sis leds"), ("foto_placa.jpg", 155, 116, "L'Arduino i el polsador")])}
-{h2("4. Els problemes que hem tingut")}
-{p("Aquesta pràctica ens ha anat bastant bé, perquè ja teníem la base del codi de l'any passat. El que vam haver de canviar va ser que, quan tiràvem el dau, el primer led es quedava sempre encès. Com que el led del port 12 s'encén amb tots els números, no quedava clar quan acabava una tirada i començava la següent, i això creava confusió.")}
-{p("El professor ens va dir que els leds s'havien d'apagar després de cada tirada. Per fer-ho, a cada " + cw("case") + " hi hem afegit un " + cw("delay(2000)") + " i després hem apagat amb " + cw("LOW") + " els mateixos leds que havíem encès. Com que hi ha sis " + cw("case") + " i cadascun encén un nombre diferent de leds, ho vam haver de canviar un per un, i va ser una mica pesat.")}
+{p("Els sis leds estan en fila a la part de baix de la protoboard. La pota llarga va al port i la curta a la línia de menys, que va a GND amb una resistència. El polsador està a dalt, entre 5V i el port 13.")}
+{table(muntatge, [190, 291])}
+{p("El primer led que s'encén és el groc del port 12, el de l'extrem de la fila, i a partir d'aquí van seguint cap a l'altra punta.")}
+{imgs([("foto_leds.jpg", 200, 150, "Els sis leds"), ("foto_placa.jpg", 200, 150, "L'Arduino i el polsador")])}
+{imgs([("foto_dalt.jpg", 113, 150, "Vista des de dalt")])}
+{h2("4. Com hem arribat al codi final")}
+{steps(["Vam partir del codi del dau que el Pau va fer l'any passat i el vam deixar amb switch i case, com al Morse de la Tasca 6, perquè ens és més fàcil de seguir que un for.",
+        "Quan el provàvem, el led del port 12 es quedava sempre encès. Com que s'encén amb tots els números, no es veia quan acabava una tirada i començava la següent, i això creava confusió. El professor ens va dir que els leds s'havien d'apagar després de cada tirada.",
+        "Primer vam posar el delay(2000) i els LOW al final, després del switch, però els leds no s'apagaven.",
+        "Al final els vam posar dins de cada case, apagant només els leds que s'havien encès. Així sí que funciona, però com que hi ha sis case els vam haver de canviar un per un, i va ser una mica pesat."])}
+{p("Per exemple, el case 2 abans i ara (en verd, el que hi hem afegit):")}
+{compare(("Abans", snippet(ABANS)), ("Ara", snippet(ARA, new={3, 4, 5})))}
 {h2("5. Descripció i funcionament")}
 {h3("5.1. El codi")}
 {cols}
-{p("Al setup, a més de dir quins ports són de sortida i quin d'entrada, hi ha " + cw("randomSeed(analogRead(0))") + ". Això fa servir el soroll del pin A0, que no està connectat a res, perquè cada vegada que engeguem la placa els números no surtin en el mateix ordre.")}
-{p("Al loop, quan premem el polsador, " + cw("random(1, 7)") + " tria un número entre l'1 i el 6 (el 7 no hi entra mai) i el guarda a " + cw("n") + ". Després, el " + cw("switch") + " mira quin número ha sortit i va al " + cw("case") + " que toca. Cada " + cw("case") + " encén els seus leds, espera dos segons i els torna a apagar. El " + cw("break") + " fa que el programa surti del " + cw("switch") + " i no continuï amb el " + cw("case") + " de sota.")}
-{table([["Número", "Leds que s'encenen", "Ports"],
-        ["1", "1 led", "12"],
-        ["2", "2 leds", "12 i 11"],
-        ["3", "3 leds", "12, 11 i 10"],
-        ["4", "4 leds", "12, 11, 10 i 9"],
-        ["5", "5 leds", "12, 11, 10, 9 i 8"],
-        ["6", "Tots 6", "12, 11, 10, 9, 8 i 7"]], [70, 160, 251], center={0})}
-{p("Mentre dura el " + cw("delay(2000)") + " l'Arduino no llegeix el polsador, així que si el premem durant aquests dos segons no passa res. Quan els leds s'apaguen, ja es pot tornar a tirar.")}
+{p("Al setup diem que el 13 és d'entrada (el polsador) i del 12 al 7 són de sortida (els leds). El randomSeed(analogRead(0)) llegeix el pin A0, que no té res connectat, i així els números no surten sempre en el mateix ordre quan engeguem la placa.")}
+{p("Al loop, si premem el polsador, random(1, 7) treu un número de l'1 al 6 i el guarda a n. El switch mira quin número és i va al case que toca. Cada case encén els seus leds, espera 2 segons i els apaga. El break fa que no segueixi amb el case de sota.")}
+{p("Així queden els leds per a cada número:")}
+{table(dau, [60] + [50] * 6, center=set(range(7)))}
+{p("Mentre dura el delay l'Arduino no mira el polsador, o sigui que si el premem durant aquests 2 segons no passa res.")}
 {h3("5.2. El vídeo")}
-{p("Al vídeo tirem el dau unes quantes vegades. Surten un 2, un 4 i dos 2 més, i es veu com els leds s'apaguen sols al cap de dos segons. Al final també el gravem de costat.")}
-{imgs([("video_3.0.jpg", 130, 146, "Surt un 2: s'encenen 2 leds"), ("video_5.0.jpg", 130, 146, "Surt un 4: s'encenen 4 leds")])}
+{p("Al vídeo tirem el dau quatre vegades: surten un 2, un 4 i dos 2 més, i es veu com els leds s'apaguen sols als 2 segons. Al final el gravem de costat perquè es vegin bé els sis leds.")}
+{imgs([("video_3.0.jpg", 140, 157, "Surt un 2"), ("video_5.0.jpg", 140, 157, "Surt un 4")])}
+{imgs([("video_6.6.jpg", 140, 157, "Als 2 segons s'apaguen"), ("video_12.5.jpg", 140, 157, "Els leds de costat")])}
 {p('Vídeo: <a href="' + VID + '">' + VID + "</a>")}
 {h2("6. Opinió personal i possibles millores")}
-{p("Aquesta pràctica ens ha sigut bastant fàcil, perquè vam recuperar el codi del dau que el Pau va fer l'any passat. L'hem retocat una mica perquè els leds s'apaguin al cap de dos segons, ja que el primer led sempre es quedava encès i creava confusió. Aquest canvi l'hem fet nosaltres, i ha sigut una mica pesat, però ara el dau s'entén molt millor.")}
-{p("Possibles millores:")}
-{ul(["Fer que el dau «rodi»: abans de mostrar el número, encendre leds a l'atzar durant un segon, com si el dau estigués girant.",
-     "Escriure cada número que surt al monitor sèrie i, després de moltes tirades, comprovar que tots els números surten més o menys les mateixes vegades.",
-     "Escurçar el codi amb un " + cw("for") + " que encengui els leds del 12 cap avall. Així, si s'ha de canviar alguna cosa, no caldria fer-ho als sis " + cw("case") + "."])}
+{p("Aquesta pràctica ens ha sigut bastant fàcil, perquè vam recuperar el codi del dau que el Pau va fer l'any passat. L'hem retocat una mica perquè els leds s'apaguin després de dos segons, ja que el primer led sempre es quedava encès i creava confusió. Canviar-ho ha sigut una mica pesat, però ara es veu clar quan surt cada número.")}
+{p("Coses que es podrien millorar:")}
+{ul(["Que abans de sortir el número els leds s'encenguin i s'apaguin ràpid uns quants cops, com si el dau rodés.",
+     "Fer el codi més curt amb un for, perquè ara cada case repeteix els mateixos digitalWrite."])}
 """
 
 open("memoria.html", "w", encoding="utf-8").write(
